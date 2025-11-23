@@ -1,6 +1,7 @@
 package org.example;
 
 import java.util.ArrayList;
+import java.util.Objects;
 
 public class Graph {
     private ArrayList<Node> nodes;
@@ -27,5 +28,17 @@ public class Graph {
     }
     public ArrayList<String> getNames(){
         return names;
+    }
+    public Node returnNode(String name){
+        int j = 0;
+
+        for(int i = 0; i<nodes.size(); i++){
+            if(Objects.equals(name, nodes.get(i).getName())){
+                j = i;
+            }
+
+
+        }
+        return nodes.get(j);
     }
 }

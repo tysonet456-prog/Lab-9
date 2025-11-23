@@ -34,6 +34,9 @@ public class Node {
     public void setDistance(double distance){
         this.distance = distance;
     }
+    public double getDistance(){
+        return distance;
+    }
     public void setPrevious(Node node){
         this.previous = node;
     }

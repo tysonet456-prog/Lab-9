@@ -29,11 +29,11 @@ public class ListReader {
                 }
                 else{
                     if(graph.getNames().contains(tokens[1])){
-                        graph.addNode(new Node(tokens[0], list.returnNode(tokens[1]), weight));
+                        graph.addNode(new Node(tokens[0], graph.returnNode(tokens[1]), weight));
                     }
                     else{
                         Node node = new Node(tokens[1]);
-                        list.addNode(new Node(tokens[0], node, weight));
+                        graph.addNode(new Node(tokens[0], node, weight));
                     }
 
                 }
@@ -44,8 +44,8 @@ public class ListReader {
             System.err.println("Error reading file: " + e.getMessage());
         }
     }
-    public String displayNodes() {
-        graph.getNames();
+    public ArrayList<String> displayNodes() {
+        return graph.getNames();
     }
     public Graph getGraph(){
         return graph;
