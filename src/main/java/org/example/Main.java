@@ -17,7 +17,7 @@ public class Main {
         Node startNode = graph.stringToNode(node);
         DijkstraSearch dSearch = new DijkstraSearch();
         for(int i=0; i<graph.getNodes().size(); i++){
-            dSearch.dijkstraSearch(graph, startNode, graph.getNodes().get(i));
+            System.out.println(dSearch.dijkstraSearch(graph, startNode, graph.getNodes().get(i)));
         }
 
     }

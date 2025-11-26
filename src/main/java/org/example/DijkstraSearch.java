@@ -1,6 +1,7 @@
 package org.example;
 
 import java.util.ArrayList;
+import java.util.Collections;
 import java.util.Comparator;
 import java.util.PriorityQueue;
 
@@ -20,11 +21,20 @@ public class DijkstraSearch {
             node.setVisited(true);
             for(int j=0; j<node.getConnectedList().size(); j++){
                 Node nextNode = node.getConnectedList().get(j);
-                if(nextNode.isVisited() == false){
-                nextNode.setDistance(node.getWeight(j));
+                double alt = node.getDistance() + node.getWeight(j);
+                if(alt < nextNode.getDistance()){
+                nextNode.setDistance(alt);
+                nextNode.setPrevious(node);
                 q.add(nextNode);}
             }
         }
+        path.add(endNode);
+        Node prevNode = endNode.getPrevious();
+        while(prevNode != null){
+            path.add(prevNode);
+            prevNode = prevNode.getPrevious();
+        }
+        Collections.reverse(path);
         return path;
 
     }
@@ -35,6 +45,7 @@ public class DijkstraSearch {
         }
         return distance;
     }
+
 
 
 }
